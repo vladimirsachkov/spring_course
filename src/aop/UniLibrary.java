@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UniLibrary {
-    public void getBook(Book bookName) {
-        System.out.println("Мы берём книгу из UniLibrary: " + bookName.getName());
+    public void getBook() {
+        System.out.println("Мы берём книгу из UniLibrary");
     }
 
     protected String returnBook() {
