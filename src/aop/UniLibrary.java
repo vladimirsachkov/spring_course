@@ -10,6 +10,7 @@ public class UniLibrary {
     }
 
     public String returnBook() {
+        int a = 10/0;
         System.out.println("Мы возвращаем книгу в UniLibrary");
         return "Война и мир";
     }
