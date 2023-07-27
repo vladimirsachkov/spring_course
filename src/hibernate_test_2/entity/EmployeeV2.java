@@ -3,7 +3,7 @@ package hibernate_test_2.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "EmployeeV2")
+@Table(name = "EmployeesV2")
 public class EmployeeV2 {
 
     @Id
@@ -77,14 +77,23 @@ public class EmployeeV2 {
         this.salary = salary;
     }
 
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public void setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
+        return "EmployeeV2{" +
                 "id=" + id +
-                ", name='" + firstName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
+                ", empDetail=" + empDetail +
                 '}';
     }
 }

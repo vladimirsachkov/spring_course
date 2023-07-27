@@ -3,7 +3,7 @@ package hibernate_test_2.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "deteils")
+@Table(name = "details")
 public class Detail {
 
     @Id

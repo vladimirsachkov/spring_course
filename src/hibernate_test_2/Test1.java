@@ -1,6 +1,7 @@
 package hibernate_test_2;
 
-import hibernate_test.entity.Employee;
+import hibernate_test_2.entity.Detail;
+import hibernate_test_2.entity.EmployeeV2;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -9,21 +10,35 @@ public class Test1 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(EmployeeV2.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
+        Session session = factory.getCurrentSession();
+
         try {
-            Session session = factory.getCurrentSession();
-            Employee emp = new Employee("Alexandr", "Ivanov",
-                    "IT", 600);
+//            Session session = factory.getCurrentSession();
+//            EmployeeV2 employeeV2 = new EmployeeV2("Zaur", "Tregulov",
+//                    "It",500);
+//            Detail detail = new Detail("Baku", "11234124",
+//                    "zaurtregulov@gmail.com");
+//
+//            employeeV2.setEmpDetail(detail);
+//            session.beginTransaction();
+//
+//            session.save(employeeV2);
+//
+//            session.getTransaction().commit();
+//            System.out.println("Done!");
+
             session.beginTransaction();
-            session.save(emp);
+            EmployeeV2 employeeV2 = session.get(EmployeeV2.class, 2);
+            session.delete(employeeV2);
+
             session.getTransaction().commit();
-
             System.out.println("Done!");
-            System.out.println(emp);
-
         } finally {
+            session.close();
             factory.close();
         }
 
