@@ -20,6 +20,10 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "empDetail",
+            cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    private EmployeeV2 employeeV2;
+
     public Detail() {
     }
 
@@ -59,6 +63,14 @@ public class Detail {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public EmployeeV2 getEmployeeV2() {
+        return employeeV2;
+    }
+
+    public void setEmployeeV2(EmployeeV2 employeeV2) {
+        this.employeeV2 = employeeV2;
     }
 
     @Override
